@@ -8,3 +8,8 @@ resource "aws_instance" "demoTerra" {
     subnet_id = "subnet-0d595fdf7d4273d6d"
     key_name = "mumbaiKeyPair"
 }
+
+output "example_output" {
+  description = "output public ip of instance created"
+  value       = resource.aws_instance.demoTerra.public_ip
+}
