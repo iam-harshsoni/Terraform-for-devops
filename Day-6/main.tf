@@ -6,6 +6,10 @@ variable "ami" {
     description = "value"
 }
 
+variable "key_name" {
+  description = "value"
+}
+
 variable "instance_type" {
     description = "value"
     type = map(string)
@@ -20,5 +24,10 @@ variable "instance_type" {
 module "ec2_instance" {
   source = "./modules/ec2_instance"
   ami= var.ami
+  key_name = var.key_name
   instance_type = lookup(var.instance_type,terraform.workspace,"t2.micro")
+}
+
+output "public_ip" {
+  value = module.ec2_instance.pubic_id
 }
