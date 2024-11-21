@@ -9,6 +9,7 @@ TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-meta
 INSTANCE_ID=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" -s http://169.254.169.254/latest/meta-data/instance-id)
 
 
+
 # Install the AWS CLI
 apt install -y awscli
 
@@ -34,11 +35,11 @@ cat <<EOF > /var/www/html/index.html
   </style>
 </head>
 <body>
-  <h1>Terraform Project Server 1</h1>
+  <h1>Terraform Project Server 2</h1>
   <h2>Instance ID: <span style="color:green">$INSTANCE_ID</span></h2>
-  <p>Welcome to Abhishek Veeramalla's Channel</p>
-   <br>
-  <img src="https://harsh-demo-web-tera-24.s3.ap-south-1.amazonaws.com/terraform-1.png" alt="Image">
+  <p>Welcome to Harsh Soni's Channel</p>
+  <br>
+  <img src="https://harsh-demo-web-tera-24.s3.ap-south-1.amazonaws.com/terraform-2.png" alt="Image">
   
 </body>
 </html>
