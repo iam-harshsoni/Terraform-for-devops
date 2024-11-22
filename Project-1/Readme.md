@@ -66,6 +66,11 @@ The diagram illustrates the infrastructure setup, including the following compon
    ```bash
    terraform destroy
    ```
+   
+## Blog Link
+
+For a detailed explanation of this project, including screenshots of the setup and execution, visit my blog:  
+[**Setting up Infrastructure Using Terraform on AWS**](<insert-your-blog-link-here>)
 
 ## Customization
 
