@@ -71,3 +71,8 @@ The diagram illustrates the infrastructure setup, including the following compon
 
 - Modify the **variables.tf** file to customize resource configurations, such as instance type, region, and S3 bucket name.
 - Update the **userdata.sh** and **userdata2.sh** scripts to include custom startup commands for your EC2 instances.
+
+## Acknowledgments
+
+Special thanks to:
+**Abhishek Veeramala** and **Cloud Champ** for their guidance and support throughout the learning journey.
