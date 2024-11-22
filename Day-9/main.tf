@@ -1,43 +1,72 @@
+# Creating VPC
 resource "aws_vpc" "myvpc" {
     cidr_block = var.cidr
+
+    tags = {
+      Name = "my-vpc"
+    }
 }
 
+# Creating Subnet1
 resource "aws_subnet" "sub1" {
     vpc_id = aws_vpc.myvpc.id
     cidr_block = var.sub1_cidr_block
     availability_zone = var.sub1_availability_zone
     map_public_ip_on_launch = true
+
+    tags = {
+      Name = "subnet-1"
+    }
 }
 
+# Creating Subnet2
 resource "aws_subnet" "sub2" {
     vpc_id = aws_vpc.myvpc.id
     cidr_block = var.sub2_cidr_block
     availability_zone = var.sub2_availability_zone
     map_public_ip_on_launch = true
+
+    tags = {
+      Name = "subnet-2"
+    }
 }
 
+# Creating Internet Gateway
 resource "aws_internet_gateway" "igw" {
     vpc_id = aws_vpc.myvpc.id  
+
+    tags = {
+      Name = "my-igw"
+    }
 }
 
+# Creating RouteTable
 resource "aws_route_table" "rt" {
   vpc_id = aws_vpc.myvpc.id
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id
   }
+
+  tags = {
+      Name = "my-rt"
+    }
 }
 
+
+# Route Table Association with Subnet1
 resource "aws_route_table_association" "rta1" {
     subnet_id = aws_subnet.sub1.id
     route_table_id = aws_route_table.rt.id  
 }
 
+# Route Table Association with Subnet2
 resource "aws_route_table_association" "rta2" {
     subnet_id = aws_subnet.sub2.id
     route_table_id = aws_route_table.rt.id  
 }
 
+# Creating Security Groupt
 resource "aws_security_group" "webSg" {
     name="web"
     vpc_id = aws_vpc.myvpc.id
@@ -66,7 +95,7 @@ resource "aws_security_group" "webSg" {
     }
     
     tags = {
-        Name = "Web-sg"
+        Name = "web-sg"
     }  
 }
 
@@ -94,6 +123,7 @@ resource "aws_s3_bucket_public_access_block" "example" {
   restrict_public_buckets = false
 }
 
+# Creating ACL for bucket
 resource "aws_s3_bucket_acl" "example" {
   depends_on = [aws_s3_bucket_ownership_controls.example]
 
@@ -243,7 +273,7 @@ resource "aws_lb" "myalb" {
   subnets            = [aws_subnet.sub1.id,aws_subnet.sub2.id,]
 
   tags = {
-    Name = "test"
+    Name = "my-alb"
   }
 }
 

@@ -37,10 +37,9 @@ cat <<EOF > /var/www/html/index.html
 <body>
   <h1>Terraform Project Server 2</h1>
   <h2>Instance ID: <span style="color:green">$INSTANCE_ID</span></h2>
-  <p>Welcome to Harsh Soni's Channel</p>
+  <p>Welcome to Server 2</p>
   <br>
-  <img src="https://harsh-demo-web-tera-24.s3.ap-south-1.amazonaws.com/terraform-2.png" alt="Image">
-  
+  <img src="https://harsh-demo-web-tera-24.s3.ap-south-1.amazonaws.com/terraform-2.png" width="500px" height="250px" alt="Image">
 </body>
 </html>
 EOF
