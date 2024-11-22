@@ -263,7 +263,7 @@ resource "aws_instance" "server2" {
     }  
 }
 
-// Create Load Balancer
+# Create Load Balancer
 resource "aws_lb" "myalb" {
   name               = "myalb"
   internal           = false
