@@ -129,7 +129,7 @@ The project is organized as follows:
 ## Blog Link
 
 For a detailed explanation of this project, including step-by-step implementation and screenshots, refer to the blog:  
-[**AWS Infrastructure Setup with Terraform (Modular Architecture)**](<insert-your-blog-link-here>)
+[**AWS Infrastructure Setup with Terraform (Modular Architecture)**](<https://harshdevopss.hashnode.dev/step-by-step-guide-to-creating-aws-cloud-infrastructure-with-terraform>)
 
 ---
 
